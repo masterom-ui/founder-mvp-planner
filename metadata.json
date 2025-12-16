@@ -1,0 +1,5 @@
+{
+  "name": "MVP Blueprint Generator",
+  "description": "Transforms abstract ideas into execution-ready MVP blueprints using Gemini AI.",
+  "requestFramePermissions": []
+}
