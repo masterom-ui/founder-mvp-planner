@@ -5,13 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MVP Blueprint Generator</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              inter: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+          }
+        }
+      }
+    </script>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+      
       body {
-        font-family: 'Inter', sans-serif;
+        transition: background-color 0.5s ease, color 0.5s ease;
       }
-      .font-mono {
-        font-family: 'JetBrains Mono', monospace;
+
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Neon scrollbar for dark mode */
+      .dark ::-webkit-scrollbar {
+        width: 8px;
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #0f172a;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #4f46e5;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
+      }
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background: #6366f1;
       }
     </style>
   <script type="importmap">
@@ -25,7 +61,7 @@
 }
 </script>
 </head>
-  <body class="bg-slate-50 text-slate-900 antialiased selection:bg-indigo-100 selection:text-indigo-900">
+  <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased selection:bg-indigo-100 dark:selection:bg-indigo-900 selection:text-indigo-900 dark:selection:text-indigo-100 transition-colors duration-500">
     <div id="root"></div>
   </body>
 </html>
